@@ -1,0 +1,296 @@
+[
+  {
+    "id": "broker",
+    "type": "mqtt-broker",
+    "name": "Pi broker",
+    "broker": "localhost",
+    "port": "1883",
+    "clientid": "",
+    "autoConnect": true,
+    "usetls": false,
+    "keepalive": "60",
+    "cleansession": true
+  },
+  {
+    "id": "uitab",
+    "type": "ui_tab",
+    "name": "Irrigation",
+    "icon": "dashboard",
+    "order": 1
+  },
+  {
+    "id": "tab",
+    "type": "tab",
+    "label": "Irrigation"
+  },
+  {
+    "id": "g1",
+    "type": "ui_group",
+    "name": "Tree 1",
+    "tab": "uitab",
+    "order": 1,
+    "disp": true,
+    "width": "6"
+  },
+  {
+    "id": "in1",
+    "type": "mqtt in",
+    "z": "tab",
+    "name": "tree1/humidity",
+    "topic": "tree1/humidity",
+    "qos": "0",
+    "datatype": "auto",
+    "broker": "broker",
+    "x": 160,
+    "y": 60,
+    "wires": [
+      [
+        "ga1"
+      ]
+    ]
+  },
+  {
+    "id": "ga1",
+    "type": "ui_gauge",
+    "z": "tab",
+    "name": "Moisture 1",
+    "group": "g1",
+    "order": 1,
+    "width": 0,
+    "height": 0,
+    "gtype": "gage",
+    "title": "Soil moisture",
+    "label": "%",
+    "format": "{{value}}",
+    "min": 0,
+    "max": 100,
+    "colors": [
+      "#e6a100",
+      "#2fb344",
+      "#1c7ed6"
+    ],
+    "seg1": "30",
+    "seg2": "70",
+    "x": 380,
+    "y": 60,
+    "wires": []
+  },
+  {
+    "id": "sw1",
+    "type": "ui_switch",
+    "z": "tab",
+    "name": "Valve 1",
+    "label": "Valve",
+    "group": "g1",
+    "order": 2,
+    "width": 0,
+    "height": 0,
+    "passthru": false,
+    "decouple": "true",
+    "topic": "tree1/output",
+    "onvalue": "on",
+    "onvalueType": "str",
+    "offvalue": "off",
+    "offvalueType": "str",
+    "x": 560,
+    "y": 60,
+    "wires": [
+      [
+        "out1"
+      ]
+    ]
+  },
+  {
+    "id": "out1",
+    "type": "mqtt out",
+    "z": "tab",
+    "name": "tree1/output",
+    "topic": "tree1/output",
+    "qos": "0",
+    "retain": "false",
+    "broker": "broker",
+    "x": 740,
+    "y": 60,
+    "wires": []
+  },
+  {
+    "id": "g2",
+    "type": "ui_group",
+    "name": "Tree 2",
+    "tab": "uitab",
+    "order": 2,
+    "disp": true,
+    "width": "6"
+  },
+  {
+    "id": "in2",
+    "type": "mqtt in",
+    "z": "tab",
+    "name": "tree2/humidity",
+    "topic": "tree2/humidity",
+    "qos": "0",
+    "datatype": "auto",
+    "broker": "broker",
+    "x": 160,
+    "y": 120,
+    "wires": [
+      [
+        "ga2"
+      ]
+    ]
+  },
+  {
+    "id": "ga2",
+    "type": "ui_gauge",
+    "z": "tab",
+    "name": "Moisture 2",
+    "group": "g2",
+    "order": 1,
+    "width": 0,
+    "height": 0,
+    "gtype": "gage",
+    "title": "Soil moisture",
+    "label": "%",
+    "format": "{{value}}",
+    "min": 0,
+    "max": 100,
+    "colors": [
+      "#e6a100",
+      "#2fb344",
+      "#1c7ed6"
+    ],
+    "seg1": "30",
+    "seg2": "70",
+    "x": 380,
+    "y": 120,
+    "wires": []
+  },
+  {
+    "id": "sw2",
+    "type": "ui_switch",
+    "z": "tab",
+    "name": "Valve 2",
+    "label": "Valve",
+    "group": "g2",
+    "order": 2,
+    "width": 0,
+    "height": 0,
+    "passthru": false,
+    "decouple": "true",
+    "topic": "tree2/output",
+    "onvalue": "on",
+    "onvalueType": "str",
+    "offvalue": "off",
+    "offvalueType": "str",
+    "x": 560,
+    "y": 120,
+    "wires": [
+      [
+        "out2"
+      ]
+    ]
+  },
+  {
+    "id": "out2",
+    "type": "mqtt out",
+    "z": "tab",
+    "name": "tree2/output",
+    "topic": "tree2/output",
+    "qos": "0",
+    "retain": "false",
+    "broker": "broker",
+    "x": 740,
+    "y": 120,
+    "wires": []
+  },
+  {
+    "id": "g3",
+    "type": "ui_group",
+    "name": "Tree 3",
+    "tab": "uitab",
+    "order": 3,
+    "disp": true,
+    "width": "6"
+  },
+  {
+    "id": "in3",
+    "type": "mqtt in",
+    "z": "tab",
+    "name": "tree3/humidity",
+    "topic": "tree3/humidity",
+    "qos": "0",
+    "datatype": "auto",
+    "broker": "broker",
+    "x": 160,
+    "y": 180,
+    "wires": [
+      [
+        "ga3"
+      ]
+    ]
+  },
+  {
+    "id": "ga3",
+    "type": "ui_gauge",
+    "z": "tab",
+    "name": "Moisture 3",
+    "group": "g3",
+    "order": 1,
+    "width": 0,
+    "height": 0,
+    "gtype": "gage",
+    "title": "Soil moisture",
+    "label": "%",
+    "format": "{{value}}",
+    "min": 0,
+    "max": 100,
+    "colors": [
+      "#e6a100",
+      "#2fb344",
+      "#1c7ed6"
+    ],
+    "seg1": "30",
+    "seg2": "70",
+    "x": 380,
+    "y": 180,
+    "wires": []
+  },
+  {
+    "id": "sw3",
+    "type": "ui_switch",
+    "z": "tab",
+    "name": "Valve 3",
+    "label": "Valve",
+    "group": "g3",
+    "order": 2,
+    "width": 0,
+    "height": 0,
+    "passthru": false,
+    "decouple": "true",
+    "topic": "tree3/output",
+    "onvalue": "on",
+    "onvalueType": "str",
+    "offvalue": "off",
+    "offvalueType": "str",
+    "x": 560,
+    "y": 180,
+    "wires": [
+      [
+        "out3"
+      ]
+    ]
+  },
+  {
+    "id": "out3",
+    "type": "mqtt out",
+    "z": "tab",
+    "name": "tree3/output",
+    "topic": "tree3/output",
+    "qos": "0",
+    "retain": "false",
+    "broker": "broker",
+    "x": 740,
+    "y": 180,
+    "wires": []
+  }
+]
