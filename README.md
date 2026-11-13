@@ -4,6 +4,8 @@ Low-cost IoT irrigation control. ESP32 nodes read soil moisture and switch 12 V 
 
 Paper: *Using the Internet of Things (IoT) in Building an Irrigation Control System*, 3rd International Conference on IoT and Applications, University of Isfahan, 2019. The paper and poster are in [`docs/`](docs/), with a longer [report](docs/REPORT.md).
 
+Also available on [Civilica](https://en.civilica.com/doc/955883/).
+
 ## Architecture
 
 ```
